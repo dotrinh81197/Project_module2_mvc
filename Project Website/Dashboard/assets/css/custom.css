@@ -1,0 +1,37 @@
+body {
+  max-height: fit-content;
+}
+.navbar-brand {
+  font-size: xx-large;
+  color: #8dc26f !important;
+}
+.navbar-brand-sm {
+  font-size: x-large;
+  color: #8dc26f !important;
+}
+
+.fa {
+  font-size: 1.5em !important;
+}
+.nav-item {
+  list-style-type: none;
+}
+
+.page {
+  font-family: "Arima Madurai", cursive;
+}
+
+.form-group label {
+  font-size: larger;
+  font-weight: 700;
+}
+
+.form-group select {
+  font-size: larger;
+  font-weight: 400;
+}
+
+.card-body {
+  font-size: x-large;
+  font-weight: 400;
+}
