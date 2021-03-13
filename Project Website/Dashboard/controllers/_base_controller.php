@@ -12,7 +12,7 @@ abstract class BaseController
     //trả về tên thư mục muốn truy cập vào để lấy cái view ra
     abstract protected function getFolder();
 
-    protected function render($file_name, $viewData = [])
+    protected function render($file_name, $viewData = [], $file_layout_name = "application_layout")
     {
         // Kiểm tra file gọi đến có tồn tại hay không?
         $view_file = "views/$this->folder/$file_name.php";
@@ -28,7 +28,7 @@ abstract class BaseController
             $content = ob_get_clean();
 
             // Sau khi có kết quả đã được lưu vào biến $content, gọi ra template chung của hệ thống để hiển thị cho người dùng
-            include_once("views/shared/application_layout.php");
+            include_once("views/shared/$file_layout_name.php");
         }
     }
 }

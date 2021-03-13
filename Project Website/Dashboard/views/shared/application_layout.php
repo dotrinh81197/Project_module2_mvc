@@ -44,24 +44,25 @@
 </head>
 
 <body>
+
     <div class="page">
         <!-- navbar-->
         <header class="header">
             <nav class="navbar">
                 <div class="container-fluid">
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
-                        <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
-                                <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Dashboard</strong></div>
+                        <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="?controller=home&action=welcome" class="navbar-brand">
+                                <div class="brand-text d-none d-md-inline-block"><strong class="strong">Dashboard</strong></div>
                             </a></div>
 
                         <!-- Log out-->
                         <?php
-                        if (isset($_SESSION['username'])) {
+                        if (isset($_SESSION["username"])) {
 
-                            echo '<li class="nav-item"><a href="?controller=user&action=logout" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                            echo '<li class="nav-item"> <span>Hi ' . $_SESSION["username"] . ' </span><a href="?controller=auth&action=logout" class="nav-link logout"> <span class="d-sm-none d-xl-inline-block ">Logout</span><i class="fa fa-sign-out"></i></a></li>
                         ';
                         } else {
-                            echo '<li class="nav-item"><a href="view/login.php" class="nav-link login"> <span class="d-none d-sm-inline-block">Login </span><i class="fa fa-sign-in"></i></a></li>
+                            echo '<li class="nav-item"><a href="?controller=auth&action=login" class="nav-link login"> <span class="d-none d-sm-inline-block">Login </span><i class="fa fa-sign-in"></i></a></li>
                         ';
                         }
                         ?>
@@ -85,10 +86,11 @@
             <!-- Sidebar Header    -->
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <!-- User Info-->
-                <div class="sidenav-header-inner text-center">
+                <div class="sidenav-header-inner text-center" style="color: #8dc26f;">
                     <?php
-                    if (isset($_SESSION['username'])) {
-                        echo '<h4 class="d-none d-sm-inline-block"><?php echo' . ' <span>Hi ' . $_SESSION["username"] . '</span>';
+
+                    if (isset($_SESSION["username"])) {
+                        echo '<h4 class="d-none d-sm-inline-block"><?php echo' . ' <span>Hi ' . $_SESSION["username"] . ' </span>';
                         ' ?></h4></a>
                     ';
                     }
@@ -97,16 +99,16 @@
                     <span>Website Manager</span>
                 </div>
                 <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo">
-                    <a href="index.html" class="brand-small text-center">
-                        <strong>B</strong><strong class="text-primary">D</strong></a>
-                </div>
+                <!-- <div class="sidenav-header-logo">
+                    <a href="?controller=home&action=welcome" class="brand-small text-center">
+                        <strong>B</strong><strong style="color:#8dc26f">D</strong></a>
+                </div> -->
             </div>
             <!-- Sidebar Navigation Menus-->
             <div class="main-menu">
                 <h5 class="sidenav-heading">Main</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li class="active">
+                    <li>
                         <a href="?controller=home&action=welcome"> <i class="icon-home"></i>Home</a>
                     </li>
                     <li>

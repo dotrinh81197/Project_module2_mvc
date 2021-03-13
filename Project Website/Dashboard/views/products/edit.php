@@ -103,7 +103,8 @@ Utils::showMessage();
                 </button> -->
     </div>
 </form>
-<script src="assets/js/script.js"></script>
+<script src="/assets/js/script.js"></script>
+
 
 <script>
     const leftFormCol = document.querySelector("#left_form_col");

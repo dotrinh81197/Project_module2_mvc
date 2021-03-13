@@ -51,3 +51,7 @@ body {
 .news {
   height: 300px;
 }
+.footer {
+  font-size: larger;
+  font-weight: bolder;
+}

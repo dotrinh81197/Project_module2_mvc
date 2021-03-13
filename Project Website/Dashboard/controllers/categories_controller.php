@@ -20,17 +20,45 @@ class CategoriesController extends BaseController
     }
     public function create()
     {
-        $data = Categories::all();
-        $viewData = array(
-            "categories" => $data,
-        );
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $this->render("create", $viewData);
+            $this->storeCategory();
+        } else {
+            if (isset($_SESSION["message"])) {
+                unset($_SESSION["message"]);
+            }
+            $this->showCreatePage();
+        }
     }
 
+    public function storeCategory()
+    {
+        $category_name = $_POST["category_name"];
+        $category = new Categories();
+        $check =  $category::findByCategoryName($category_name);
+
+        if ($check) {
+            $_SESSION["message"] = "Thể loại này đã tồn tại";
+            $this->showCreatePage();
+        } else {
+            $category->category_name = $category_name;
+            $saveSuccess = $category->save($category_name);
+
+            if ($saveSuccess) {
+                $_SESSION["message"] = "Thể loại mới đã được thêm vào";
+            }
+            $this->index();
+        }
+    }
+    public function showCreatePage()
+    {
+        $categories = Categories::all();
+        $viewData = ["categories" => $categories];
+        $this->render("create", $viewData,);
+    }
     public function edit()
     {
-        
-        $this->render("categories", "add");
+
+        $this->render("edit", [],);
     }
 }

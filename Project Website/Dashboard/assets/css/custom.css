@@ -15,8 +15,13 @@ body {
 }
 .nav-item {
   list-style-type: none;
+  font-family: "Courier New", Courier, monospace;
+  font-size: larger;
+  color: #8dc26f;
 }
-
+.strong {
+  color: #8dc26f;
+}
 .page {
   font-family: "Arima Madurai", cursive;
 }

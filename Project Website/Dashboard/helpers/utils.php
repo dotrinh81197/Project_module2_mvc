@@ -10,4 +10,13 @@ class Utils
             unset($_SESSION["message"]);
         }
     }
+
+    // Hàm kiểm tra lien kết có đúng với đường dẫn hay không, nếu đúng thì in ra active
+// function showActive($controllerName, $actionName = null)
+// {
+//     global $controller;
+//     if ($controller == $controllerName) {
+//         echo "active";
+//     }
+// }
 }

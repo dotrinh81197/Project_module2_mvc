@@ -12,8 +12,8 @@ $productHelper = new ProductHelper($products);
                     <div class="col-sm-6">
                         <h1>Danh sách sản phẩm</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <a href="?controller=product&action=create">
+                    <div class="col-sm-6 float-right">
+                        <a style="float:right" href="?controller=product&action=create">
                             <button type="button" class="btn btn-outline-primary btn-lg"> + Thêm sản phẩn mới</button>
                         </a>
                     </div>
@@ -46,7 +46,7 @@ $productHelper = new ProductHelper($products);
 <script>
     document.querySelectorAll(".btn.btn-delete").forEach((e, i) => {
         e.addEventListener("click", (event) => {
-            let isDelete = confirm(`sure ? `);
+            let isDelete = confirm(`Xóa sản phẩm ? `);
             if (isDelete) {
                 event.target.parentNode.submit()
             }
@@ -54,15 +54,3 @@ $productHelper = new ProductHelper($products);
 
     })
 </script>
-<!-- Nhìn hắn đẹp hơn chưa
-function để 1 nơi
-cái ni để render thôi
-sẽ đỡ rối -->
-e chưa làm xong chi hết b chưa chỉnh code luôn :))
-cái ni phải làm struct từ đầu
-tới lúc e làm xong thì nó phình to ra
-e ko handle nỗi mô
-ời :()
-
-OK viết được rk là goodjob r đó =))))
-còn cái index gớm :)) cho coi này

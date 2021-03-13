@@ -32,18 +32,13 @@ class ProductHelper
                         <span class="btn btn-outline-danger btn-delete">Xóa</span>
                     </form>
                 </td>
-                <td>
-                    <a href="?controller=product&action=detail&id=' . $product->id . '">
-                        <button type="button" class="btn btn-outline-info">Chi tiết</button>
-                    </a>
-                </td>
+                
             </tr>';
     }
 
     public function renderProducts()
     {
-        // Khác JS quá
-        // Được rồi mà có điều function thì nên return thay vì echo
+
         $result = "";
         foreach ($this->products as $key =>  $product) {
             $result .= $this->makeProductRow($product, $key);

@@ -25,12 +25,6 @@ class ProductController extends BaseController
     public function create()
     {
 
-        $data = Categories::all();
-        $viewData = array(
-            "categories" => $data,
-        );
-
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->storeProduct();
             $this->showCreatePage();
@@ -61,7 +55,7 @@ class ProductController extends BaseController
 
     public function delete()
     {
-    
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_GET['id'];
             $product = Products::getProduct($id);
@@ -100,6 +94,7 @@ class ProductController extends BaseController
         $product->image_url = $image_url;
         $product->category_id = $category_id;
 
+        
         $saveSussess = $product->save();
 
         if ($saveSussess) {
@@ -173,124 +168,3 @@ class ProductController extends BaseController
         $this->render("edit", $viewData);
     }
 }
-// class ProductController
-// {
-//     public $ProductDb;
-
-
-
-//     public function index()
-//     {
-
-//         $products = $this->ProductDb->getAll();
-
-
-//         include_once 'view/list.php';
-//     }
-
-//     public function add()
-//     {
-//         // Kiểm tra, nếu request method là GET thì trả về giao diện trang Add.php
-//         // Nếu không (tức là POST), thì lấy dữ liệu từ form, sau đó thêm vào cơ sở dữ liệu
-//         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//             include 'view/add.php';
-//         } else {
-//             $name = $_POST['name'];
-//             $brand = $_POST['brand'];
-//             $weight = $_POST['weight'];
-//             $description = $_POST['description'];
-//             $ageRange = $_POST['ageRange'];
-//             $product = new Product($name, $brand, $weight, $price, $description, $ageRange);
-//             $this->ProductDb->create($product);
-//             $msg['msg'] = 'Product created';
-//             include 'view/add.php';
-//         }
-//     }
-
-
-//     public function drop()
-//     {
-//         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//             $id = $_GET['id'];
-//             $product = $this->ProductDb->getById($id);
-//             include 'view/delete.php';
-//         } else {
-//             $id = $_POST['id'];
-//             $this->ProductDb->delete($id);
-//             header('Location: index.php');
-//         }
-//     }
-
-
-//     public function edit()
-//     {
-//         // Kiểm tra, nếu request method là GET thì trả về giao diện trang Edit.php
-//         // Nếu không (tức là POST), thì lấy dữ liệu từ form, sau đó cập nhật vào cơ sở dữ liệu
-//         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//             // Lấy dữ liệu từ product từ model
-//             // Lấy id của record muốn sửa
-//             $id = isset($_GET['id']) ? $_GET['id'] : NULL;
-
-//             // Lấy đối tượng product từ model
-//             $product = $this->ProductDb->getById($id);
-
-
-//             include 'view/edit.php';
-//         } else {
-//             $name = $_POST['name'];
-//             $price = $_POST['price'];
-//             $description = $_POST['description'];
-//             $producer = $_POST['producer'];
-//             $id = $_GET['id'];
-
-//             $product = new Product($name, $brand, $weight, $price, $description, $ageRange);
-//             $this->ProductDb->update($id, $product);
-//             $message = 'Product Updated';
-//             $this->index();
-//         }
-//     }
-
-//     public function showDetail()
-//     {
-
-//         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//             $id = $_GET['id'];
-//             $product = $this->ProductDb->getById($id);
-//             include 'view/detail.php';
-//         } else {
-//             $id = $_POST['id'];
-//             $this->ProductDb->getDetail($id);
-//             header('Location: index.php');
-//         }
-//     }
-
-//     public function search()
-//     {
-
-//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-//             $search =  $_POST['search'];
-
-//             $products = $this->ProductDb->search($search);
-//             include 'view/list.php';
-//         } else {
-//         }
-//     }
-// }
-
-// $controller = new ProductController();
-// $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : NULL;
-
-// switch ($action) {
-//     case 'index':
-
-//         $controller->index();
-//         break;
-//     case 'add':
-//         $controller->add();
-//         break;
-
-//     default:
-//         # code...
-//         break;
-// }

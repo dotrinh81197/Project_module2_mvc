@@ -4,14 +4,6 @@
 $controller =  isset($_GET["controller"]) ? $_GET["controller"] :  null;
 $action = $_GET["action"] ?? null;
 
-// Hàm kiểm tra lien kết có đúng với đường dẫn hay không, nếu đúng thì in ra active
-// function showActive($controllerName, $actionName = null)
-// {
-//     global $controller;
-//     if ($controller == $controllerName) {
-//         echo "active";
-//     }
-// }
 
 // Yêu cầu kết nối MySQL
 require_once("db.php");
