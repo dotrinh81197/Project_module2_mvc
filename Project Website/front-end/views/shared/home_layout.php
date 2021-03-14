@@ -94,10 +94,10 @@ require_once("models/product.php");
                             </a>
 
                             <ul class="sub-menu">
-                                <li><a href="?controller=product&action=productbycategory&id=1">Thức ăn</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=2">Quần áo</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=3">Phụ kiện</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=12">Mỹ phẩm,làm đẹp</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=16">Thức ăn</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
 
                             </ul>
 
@@ -107,11 +107,11 @@ require_once("models/product.php");
                             <a href="#"><i class="fa fa-paw"></i> Shop cho mèo </a>
 
                             <ul class="sub-menu">
-                                <li><a href="?controller=product&action=productbycategory&id=1">Thức ăn</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=2">Quần áo</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=3">Phụ kiện</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=4">Giường, chuồng</a></li>
-                                <li><a href="?controller=product&action=productbycategory&id=12">Mỹ phẩm,làm đẹp</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=1">Thức ăn</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=4">Giường, chuồng</a></li>
+                                <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
 
 
                             </ul>

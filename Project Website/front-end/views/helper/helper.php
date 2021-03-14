@@ -26,7 +26,7 @@ class CartHelper
                         </a>
                         <ul class="social">
                             <li><a href="?controller=product&action=detail&id=' . $product->id . '"><i class="far fa-eye"></i></a></li>
-                            <li><a href="?controller=cart&action=add"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="?controller=cart&action=store"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div
                  </div>

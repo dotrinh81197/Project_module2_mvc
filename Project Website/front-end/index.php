@@ -11,6 +11,7 @@ require_once("db.php");
 
 //  Nhúng file controller
 if (isset($controller)) {
+
     require_once("controllers/$controller" . "_controller.php");
     // Khởi tạo controller
     // home: HomeController

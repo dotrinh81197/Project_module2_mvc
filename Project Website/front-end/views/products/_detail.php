@@ -1,3 +1,4 @@
+<?php var_dump($product)?>;
 <div class="container-fluid">
     <div class="content-wrapper">
         <div class="item-container">
@@ -29,11 +30,19 @@
                     <div class="product-price"><span>Giá bán: </span><?php echo number_format($product->sell_price); ?> VNĐ</div>
 
                     <hr>
-                    <div class="btn-group cart">
-
-                        <a type="button" class="btn btn-success" href="?controller=cart&action=add&$id=<?php echo $product->id; ?>">
-                            Thêm vào giỏ
-                        </a>
+                    <div class="product-extra">
+                        <div class="quantity-adder">
+                            Số lượng: <input class="slsp form-control" name="qty" type="text" id="qty" value="1" size="2">
+                            <span class="add-up add-action">+</span>
+                            <span class="add-down add-action">-</span>
+                            <input name="idtin" id="idtin" type="hidden" value="572">
+                        </div>
+                        <a type="button" idtin="572" class="btn btn-success btn-lg adtocart" href="?controller=cart&action=store&id= <?php echo $product->category_id ?>">
+                            <i class="fa fa-shopping-cart"></i> Thêm vào giỏ </a>
+                        <div class="product-action">
+                            <div class="wishlish-compare">
+                            </div>
+                        </div>
                     </div>
 
                 </div>

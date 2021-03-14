@@ -41,7 +41,7 @@ class CategoriesController extends BaseController
         $viewData = ["products" => $data];
         $this->render("productByCategory", $viewData, "byCategory_layout");
     }
-
+    
     static  function getProductsByCategory($number, $category_id)
     {
         $sql = "SELECT * FROM products 

@@ -53,6 +53,7 @@
             <!-- <li><a href="?controller=auth&action=register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
             <li><a href="?controller=auth&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
+          
         </div>
       </div>
     </nav>
@@ -83,10 +84,52 @@
           <ul class="clearfix">
             <li class="menu-item"><a href="#"> <i class="fa fa-paw"></i>Shop cho chó</a>
 
-              <ul class="sub-menu">
-                <li><a href="#">Thức ăn</a></li>
-                <li><a href="#">Quần áo</a></li>
-                <li><a href="#">Phụ kiện</a></li>
+              <ul class="clearfix">
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa fa-paw"></i>
+                    Shop cho chó
+                  </a>
+
+                  <ul class="sub-menu">
+                    <li><a href="?controller=product&action=showByCategory&id=1">Thức ăn</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
+
+                  </ul>
+
+
+                </li>
+                <li class="menu-item">
+                  <a href="#"><i class="fa fa-paw"></i> Shop cho mèo </a>
+
+                  <ul class="sub-menu">
+                    <li><a href="?controller=product&action=showByCategory&id=1">Thức ăn</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=4">Giường, chuồng</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
+
+
+                  </ul>
+                </li>
+                <li class="menu-item">
+                  <a href="">Dịch vụ </a>
+
+                  <ul class="sub-menu">
+                    <li><a href="#">Cắt, tỉa lông</a></li>
+                    <li><a href="#">Tắm, massage, spa</a></li>
+                    <li><a href="#">Huấn luyện </a></li>
+                    <li><a href="#">Thú y </a></li>
+                  </ul>
+                </li>
+                <li class="menu-item"><a href="#">Tin tức</a></li>
+                <li class="menu-item"><a href="#">Đơn hàng</a></li>
+                <div class="shopping-cart">
+                  <li class="menu-item"> <a href="#">Giỏ hàng </a> <a><i class="fas fa-shopping-cart"></i></a></li>
+                </div>
+
               </ul>
 
 

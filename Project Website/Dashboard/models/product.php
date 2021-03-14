@@ -10,6 +10,7 @@ class Products
     public $weight;
     public $cost_price;
     public $sell_price;
+    public $sale_price;
     public $description;
     public $ageRange;
     public $origin;
@@ -39,6 +40,7 @@ class Products
             $entity->brand = $row['description'];
             $entity->weight = $row['item_weight'];
             $entity->sell_price = $row['sell_price'];
+            $entity->sale_price = $row["sale_price"];
             $entity->cost_price = $row['cost_price'];
             $entity->description = $row['description'];
             $entity->ageRange = $row['age_range'];
@@ -71,6 +73,7 @@ class Products
         $product->weight = $rowdata["item_weight"];
         $product->cost_price = $rowdata["cost_price"];
         $product->sell_price = $rowdata["sell_price"];
+        $product->sale_price = $rowdata["sale_price"];
         $product->description = $rowdata["description"];
         $product->ageRange = $rowdata["age_range"];
         $product->origin = $rowdata["origin"];
@@ -85,14 +88,15 @@ class Products
 
     public function save()
     {
-        $sql = "INSERT INTO `products` (product_id,product_name, brand, item_weight, cost_price, sell_price, description, age_range, origin, image_url, intended_for, category_id)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+        $sql = "INSERT INTO `products` (product_id,product_name, brand, item_weight, cost_price, sell_price, sale_price,description, age_range, origin, image_url, intended_for, category_id)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
         ON DUPLICATE KEY UPDATE
         product_name=?,
         brand = ? ,
         item_weight= ?,
         cost_price =?,
         sell_price=?,
+        sale_price=?,
         description=?,
         age_range=?,
         origin=?,
@@ -103,6 +107,7 @@ class Products
 
 
         $statement = DB::getInstance()->prepare($sql);
+
         return $statement->execute([
             $this->id,
             $this->name,
@@ -110,6 +115,7 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,
@@ -122,12 +128,13 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,
             $this->image_url,
             $this->intended_for,
-            $this->category_id,
+            $this->category_id
         ]);
     }
 
@@ -144,6 +151,7 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,

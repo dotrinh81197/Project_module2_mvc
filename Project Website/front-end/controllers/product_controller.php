@@ -21,10 +21,18 @@ class ProductController extends BaseController
 
         $viewData = ["product" => $product];
 
-        $this->render("_detail", $viewData, "detail_layout");
+        $this->render("_detail", $viewData, "products_layout");
     }
 
-    // lấy sản phẩm theo thể loại
+    public function showByCategory()
+    {
+        $category_id = $_GET['id'];
+        $data = new Products();
+        $products = $data::getbycategory($category_id, 4);
+        $viewData = ["products" => $products];
+
+        $this->render("productByCategory", $viewData, "products_layout");
+    }
 }
 
 //     public function search()

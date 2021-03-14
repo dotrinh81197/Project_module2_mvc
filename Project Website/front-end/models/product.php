@@ -163,24 +163,29 @@ class Products
 
 
 
-    public function drop()
-    {
-        $sql = "DELETE FROM products WHERE product_id=$this->id;";
-        $statement = DB::getInstance()->prepare($sql);
-        return $statement->execute();
-    }
+    // public function drop()
+    // {
+    //     $sql = "DELETE FROM products WHERE product_id=$this->id;";
+    //     $statement = DB::getInstance()->prepare($sql);
+    //     return $statement->execute();
+    // }
 
     static function getbycategory($category_id, $number)
     {
-        $sql = "SELECT * FROM products 
-        WHERE category_id = '$category_id' 
-        LIMIT $number; ";
+
+        $sql = "SELECT *
+                FROM products t1
+                LEFT JOIN categories t2 
+                ON t1.category_id = t2.category_id
+                WHERE t1.category_id = $category_id
+                LIMIT $number;";
 
         $statement = DB::getInstance()->prepare($sql);
-        $statement->execute();
-        $rowdata = $statement->fetchAll();
 
-        $products = [];
+        $statement->execute();
+        // Array associative 
+        $rowdata = $statement->fetchAll();
+        $list = [];
 
         foreach ($rowdata as $row) {
             $entity = new Products();
@@ -197,9 +202,10 @@ class Products
             $entity->image_url = $row['image_url'];
             $entity->intended_for = $row['intended_for'];
             $entity->category_id = $row['category_id'];
-            $products[] = $entity;
+            $entity->category = $row['category_name'];
+            $list[] = $entity;
         }
-        return $products;
+        return $list;
     }
 
     static function getbyIntended_for($intended_for, $number)

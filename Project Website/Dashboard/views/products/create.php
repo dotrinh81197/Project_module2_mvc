@@ -25,7 +25,7 @@ Utils::showMessage();
 
       <div class="form-group">
         <label for="exampleFormControlInput1">Khối lượng - Size</label>
-        <input type="text" class="form-control" name="weight" id="exampleFormControlInput1" placeholder="Khối lượng sản phẩm" required="" />
+        <input type="text" class="form-control" name="weight" id="exampleFormControlInput1" placeholder="Khối lượng sản phẩm" />
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Dành cho </label>
@@ -57,6 +57,11 @@ Utils::showMessage();
       <div class="form-group">
         <label for="exampleFormControlInput1">Giá bán</label>
         <input type="number" class="form-control" name="sell_price" id="test" placeholder="VND" required min="0" step="0.01" value="0.01" />
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Giá khuyến mãi</label>
+        <input type="number" class="form-control" name="sale_price" id="test" placeholder="VND" required min="0" step="0.01" value="0.01" />
       </div>
     </div>
 
