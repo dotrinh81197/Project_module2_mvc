@@ -27,6 +27,17 @@
   .banner .banner-right {
     display: none;
   }
+  .services-item {
+    width: 20%;
+    height: 20%;
+  }
+  #footer-item {
+    width: 10%;
+    height: 10%;
+  }
+  .modal-footer .footer img {
+    display: hidden;
+  }
 }
 
 @media all and (max-width: 992px) {
@@ -46,6 +57,14 @@
 
   .banner .banner-right {
     display: none;
+  }
+  .services-item {
+    width: 33%;
+    height: 33%;
+  }
+  #footer-item {
+    width: 10%;
+    height: 10%;
   }
 }
 

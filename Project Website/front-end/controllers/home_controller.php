@@ -9,9 +9,6 @@ class HomeController extends BaseController
     }
     public function welcome()
     {
-        // Kiểm tra file gọi đến có tồn tại hay không?
-
-
-        $this->render("welcome", []);
+        $this->render("welcome", [], "home_layout");
     }
 }

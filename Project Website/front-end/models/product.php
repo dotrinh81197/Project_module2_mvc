@@ -10,6 +10,7 @@ class Products
     public $weight;
     public $cost_price;
     public $sell_price;
+    public $sale_price;
     public $description;
     public $ageRange;
     public $origin;
@@ -40,6 +41,7 @@ class Products
             $entity->weight = $row['item_weight'];
             $entity->sell_price = $row['sell_price'];
             $entity->cost_price = $row['cost_price'];
+            $entity->sale_price = $row['sale_price'];
             $entity->description = $row['description'];
             $entity->ageRange = $row['age_range'];
             $entity->origin = $row['origin'];
@@ -61,6 +63,7 @@ class Products
         WHERE t1.product_id = $id;";
         $statement = DB::getInstance()->prepare($sql);
         $statement->execute();
+
         $rowdata = $statement->fetch();
 
         $product = new Products();
@@ -71,6 +74,7 @@ class Products
         $product->weight = $rowdata["item_weight"];
         $product->cost_price = $rowdata["cost_price"];
         $product->sell_price = $rowdata["sell_price"];
+        $product->sale_price = $rowdata["sale_price"];
         $product->description = $rowdata["description"];
         $product->ageRange = $rowdata["age_range"];
         $product->origin = $rowdata["origin"];
@@ -93,6 +97,7 @@ class Products
         item_weight= ?,
         cost_price =?,
         sell_price=?,
+        sale_price = ?,
         description=?,
         age_range=?,
         origin=?,
@@ -110,6 +115,7 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,
@@ -122,6 +128,7 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,
@@ -134,7 +141,7 @@ class Products
     public function update($id)
     {
         $sql = "UPDATE products 
-        SET product_name= ?, brand= ?, item_weight=?, cost_price=?, sell_price=?, description= ?, age_range= ?, origin= ?, image_url= ?,intended_for= ?,category_id= ?
+        SET product_name= ?, brand= ?, item_weight=?, cost_price=?, sell_price=?, sale_price=? ,description= ?, age_range= ?, origin= ?, image_url= ?,intended_for= ?,category_id= ?
         where product_id=$id";
 
         $statement = DB::getInstance()->prepare($sql);
@@ -144,6 +151,7 @@ class Products
             $this->weight,
             $this->cost_price,
             $this->sell_price,
+            $this->sale_price,
             $this->description,
             $this->ageRange,
             $this->origin,
@@ -160,5 +168,104 @@ class Products
         $sql = "DELETE FROM products WHERE product_id=$this->id;";
         $statement = DB::getInstance()->prepare($sql);
         return $statement->execute();
+    }
+
+    static function getbycategory($category_id, $number)
+    {
+        $sql = "SELECT * FROM products 
+        WHERE category_id = '$category_id' 
+        LIMIT $number; ";
+
+        $statement = DB::getInstance()->prepare($sql);
+        $statement->execute();
+        $rowdata = $statement->fetchAll();
+
+        $products = [];
+
+        foreach ($rowdata as $row) {
+            $entity = new Products();
+            $entity->id = $row['product_id'];
+            $entity->name = $row['product_name'];
+            $entity->brand = $row['description'];
+            $entity->weight = $row['item_weight'];
+            $entity->sell_price = $row['sell_price'];
+            $entity->cost_price = $row['cost_price'];
+            $entity->sale_price = $row['sale_price'];
+            $entity->description = $row['description'];
+            $entity->ageRange = $row['age_range'];
+            $entity->origin = $row['origin'];
+            $entity->image_url = $row['image_url'];
+            $entity->intended_for = $row['intended_for'];
+            $entity->category_id = $row['category_id'];
+            $products[] = $entity;
+        }
+        return $products;
+    }
+
+    static function getbyIntended_for($intended_for, $number)
+    {
+        $sql = "SELECT * FROM products 
+        WHERE intended_for = '$intended_for'
+        LIMIT $number; ";
+
+        $statement = DB::getInstance()->prepare($sql);
+
+        $statement->execute();
+
+        $rowdata = $statement->fetchAll();
+
+        $products = [];
+
+        foreach ($rowdata as $row) {
+            $entity = new Products();
+            $entity->id = $row['product_id'];
+            $entity->name = $row['product_name'];
+            $entity->brand = $row['description'];
+            $entity->weight = $row['item_weight'];
+            $entity->sell_price = $row['sell_price'];
+            $entity->cost_price = $row['cost_price'];
+            $entity->sale_price = $row['sale_price'];
+            $entity->description = $row['description'];
+            $entity->ageRange = $row['age_range'];
+            $entity->origin = $row['origin'];
+            $entity->image_url = $row['image_url'];
+            $entity->intended_for = $row['intended_for'];
+            $entity->category_id = $row['category_id'];
+            $products[] = $entity;
+        }
+        return $products;
+    }
+
+    // lay cac sp giam gia'
+    static function getbySellPrice($number)
+    {
+        $sql = "SELECT * 
+        FROM products
+         ORDER BY sell_price ASC LIMIT $number;";
+
+        $statement = DB::getInstance()->prepare($sql);
+        $statement->execute();
+        $rowdata = $statement->fetchAll();
+
+        $products = [];
+
+        foreach ($rowdata as $row) {
+            $entity = new Products();
+            $entity->id = $row['product_id'];
+            $entity->name = $row['product_name'];
+            $entity->brand = $row['description'];
+            $entity->weight = $row['item_weight'];
+            $entity->sell_price = $row['sell_price'];
+            $entity->cost_price = $row['cost_price'];
+            $entity->sale_price = $row['sale_price'];
+            $entity->description = $row['description'];
+            $entity->ageRange = $row['age_range'];
+            $entity->origin = $row['origin'];
+            $entity->image_url = $row['image_url'];
+            $entity->intended_for = $row['intended_for'];
+            $entity->category_id = $row['category_id'];
+            $products[] = $entity;
+        }
+        return $products;
     }
 }

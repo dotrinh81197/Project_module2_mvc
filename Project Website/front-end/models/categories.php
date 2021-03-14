@@ -2,13 +2,13 @@
 require_once("./db.php");
 
 
-class Categories 
+class Categories
 {
 
     public $category_id;
     public $category_name;
 
-  
+
     public static function all()
     {
         $sql = "SELECT *
@@ -47,4 +47,7 @@ class Categories
         $statement = DB::getInstance()->prepare($sql);
         $statement->execute();
     }
+
+
+    
 }

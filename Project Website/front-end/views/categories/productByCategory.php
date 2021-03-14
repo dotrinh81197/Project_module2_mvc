@@ -1,21 +1,22 @@
+<?php
+require_once("./helper/cart.helper.php");
+$cartHelper = new CartHelper($products);
+?>
 <div class="container">
     <div class="products-content">
         <h2>Sản phẩm bán chạy</h2>
     </div>
     <div class="row main-content" style="height: 300px;">
 
-    <?php
-     function makeItemCart()
-    {
-        
-    }
-    
-    ?>
+        <?php
+        echo $cartHelper->renderItems($product);
+
+        ?>
         <div class="col-md-3 col-sm-6">
             <div class="product-grid3">
                 <div class="product-image3">
 
-              
+
                     <a href="#">
                         <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-3.jpg">
                         <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-4.jpg">

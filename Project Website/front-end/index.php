@@ -22,5 +22,5 @@ if (isset($controller)) {
     $controllerInstance->$action();
 } else {
 
-    require_once("views/shared/application_layout.php");
+    require_once("views/shared/home_layout.php");
 }

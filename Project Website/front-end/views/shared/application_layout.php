@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <a class="navbar-brand" href="#"><img class="logo" src="lib/resouce/banner/logo.png" alt=""></a>
-            <li class=""><a href="#">Trang chủ</a></li>
+            <li class=""><a href="?controller=home&action=welcome">Trang chủ</a></li>
             <li class=""><a href="#">Giới thiệu</a></li>
             <li class=""><a href="#">Liên hệ</a></li>
 
@@ -134,32 +134,27 @@
   <div class="content">
 
     <div class="container services">
-      <div class="row">
-        <div class="col-12 col-sm-12 ">
-          <h2>Dịch vụ</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 services">
+      <div class="row services-item" style="display:inline-block">
+        <div class="col-lg-3 col-sm-6 services">
           <a href="">
             <img src="https://assets.petco.com/petco/image/upload/h_200,f_auto,q_100/Icon_Grooming_Scissors">
             <p>Tắm, tỉa lông</p>
           </a>
 
         </div>
-        <div class="col-lg-3 services">
+        <div class="col-lg-3 col-sm-6 services">
           <a href=""> <img src="https://assets.petco.com/petco/image/upload/h_200,f_auto,q_100/Icon_DogTraining_Ribbon">
             <p>Huấn luyện</p>
           </a>
 
 
         </div>
-        <div class="col-lg-3 services">
+        <div class="col-lg-3 col-sm-6 services">
           <a href=""><img src="https://assets.petco.com/petco/image/upload/h_200,f_auto,q_100/Icon_Vet_Stethoscope">
             <p>Chăm sóc thú y</p>
           </a>
         </div>
-        <div class="col-lg-3 services">
+        <div class="col-lg-3 col-sm-6 services">
           <a href=""> <img src="https://assets.petco.com/petco/image/upload/h_200,f_auto,q_100/Icon_Pharmacy_PillBottle">
             <p>Dược phẩm</p>
           </a>
@@ -167,6 +162,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -178,7 +174,7 @@
       <div class="col-12 col-md-3">
         <div class="media-wrap">
           <a href="https://mobirise.com/">
-            <img src="assets/images/logo2.png">
+            <img src="assets/lib/resouce/logo/logo.png">
           </a>
         </div>
       </div>

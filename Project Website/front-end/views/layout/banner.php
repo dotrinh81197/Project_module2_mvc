@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="lib/resouce/banner/dich-vu-tam-cho-cho-meo-banner-right.jpg" alt="Chicago">
+                            <img src="assets/lib/resouce/banner/dich-vu-tam-cho-cho-meo-banner-right.jpg" alt="Chicago">
                             <div class="carousel-caption">
                                 <h3>Dịch vụ</h3>
                             </div>

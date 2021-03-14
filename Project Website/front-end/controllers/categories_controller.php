@@ -30,7 +30,26 @@ class CategoriesController extends BaseController
 
     public function edit()
     {
-        
+
         $this->render("categories", "add");
+    }
+
+    public function show()
+    {
+        $category_id = $_GET['category_id'];
+        $data =   CategoriesController::getProductsByCategory(4, $category_id);
+        $viewData = ["products" => $data];
+        $this->render("productByCategory", $viewData, "byCategory_layout");
+    }
+
+    static  function getProductsByCategory($number, $category_id)
+    {
+        $sql = "SELECT * FROM products 
+        WHERE category_id = $category_id 
+        LIMIT $number; ";
+
+        $statement = DB::getInstance()->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }

@@ -5,6 +5,12 @@
 body {
   font-family: "Cormorant Upright", serif;
 }
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .banner {
   width: 100%;
 }
@@ -38,7 +44,6 @@ body {
 /*products content*/
 
 .products-content {
-  background-color: aquamarine;
   font-size: 20px;
   font-weight: 600;
   padding-bottom: 3%;
@@ -46,6 +51,7 @@ body {
 .main-content {
   margin-top: 1%;
   margin-bottom: 1%;
+  max-height: 300px;
 }
 
 .news {
@@ -53,5 +59,12 @@ body {
 }
 .footer {
   font-size: larger;
-  font-weight: bolder;
+  font-weight: bold;
+}
+#footer-item {
+  width: 40%;
+  height: 40%;
+}
+.media-wrap {
+  float: left;
 }
