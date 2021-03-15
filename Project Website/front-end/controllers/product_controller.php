@@ -24,11 +24,30 @@ class ProductController extends BaseController
         $this->render("_detail", $viewData, "products_layout");
     }
 
-    public function showByCategory()
+    public function show()
     {
-        $category_id = $_GET['id'];
         $data = new Products();
-        $products = $data::getbycategory($category_id, 4);
+        $category_id = $_GET['id'];
+
+        if (isset($_GET['intended'])) {
+            $intended = $_GET['intended'];
+        } else {
+            $intended = "";
+        }
+
+
+        $products = $data::getCategoryIntended($category_id, $intended, 4);
+
+        $viewData = ["products" => $products];
+
+        $this->render("productByCategory", $viewData, "products_layout");
+    }
+
+    public function showByIntended()
+    {
+        $intended = $_GET['intended'];
+        $data = new Products;
+        $products = $data::getbyIntended_for($intended, 8);
         $viewData = ["products" => $products];
 
         $this->render("productByCategory", $viewData, "products_layout");

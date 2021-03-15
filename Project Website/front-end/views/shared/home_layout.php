@@ -75,73 +75,11 @@ require_once("models/product.php");
 
             <hr style="border-color:#f5c9b2 ;">
         </div>
-        <!--nav-menu-->
-
-        <div class="container">
-
-            <div class=" menu">
-
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
-                    <a class="navbar-brand" href="#"><span>Menu</span></a>
-
-                </button>
-                <div class="collapse navbar-collapse" id="myMenu">
-                    <ul class="clearfix">
-                        <li class="menu-item">
-                            <a href="#">
-                                <i class="fa fa-paw"></i>
-                                Shop cho chó
-                            </a>
-
-                            <ul class="sub-menu">
-                                <li><a href="?controller=product&action=showByCategory&id=16">Thức ăn</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
-
-                            </ul>
-
-
-                        </li>
-                        <li class="menu-item">
-                            <a href="#"><i class="fa fa-paw"></i> Shop cho mèo </a>
-
-                            <ul class="sub-menu">
-                                <li><a href="?controller=product&action=showByCategory&id=1">Thức ăn</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=4">Giường, chuồng</a></li>
-                                <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
-
-
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a href="">Dịch vụ </a>
-
-                            <ul class="sub-menu">
-                                <li><a href="#">Cắt, tỉa lông</a></li>
-                                <li><a href="#">Tắm, massage, spa</a></li>
-                                <li><a href="#">Huấn luyện </a></li>
-                                <li><a href="#">Thú y </a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item"><a href="#">Tin tức</a></li>
-                        <li class="menu-item"><a href="#">Đơn hàng</a></li>
-                        <div class="shopping-cart">
-                            <li class="menu-item"> <a href="#">Giỏ hàng </a> <a><i class="fas fa-shopping-cart"></i></a></li>
-                        </div>
-
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <!--end nav-menu-->
-
 
     </div>
     <?php
+
+    include_once "./views/layout/menu.php";
     include_once "./views/layout/banner.php";
 
     ?>

@@ -1,4 +1,3 @@
-<?php var_dump($product)?>;
 <div class="container-fluid">
     <div class="content-wrapper">
         <div class="item-container">

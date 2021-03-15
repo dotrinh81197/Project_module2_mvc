@@ -25,7 +25,7 @@
   <!--header-->
   <div class="container">
 
-    <img id="header" style="width: 100%; height: 50%;" src="assets/lib/resouce/banner/banner_main.png" alt="">
+    <img id="header" style="width: 100%; height: 50%;" src="assets/lib/resouce/banner/banner2.png" alt="">
 
 
   </div>
@@ -53,7 +53,7 @@
             <!-- <li><a href="?controller=auth&action=register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
             <li><a href="?controller=auth&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
-          
+
         </div>
       </div>
     </nav>
@@ -70,6 +70,11 @@
 
       <hr style="border-color:#f5c9b2 ;">
     </div>
+    <!--banner-->
+    <?php
+    include_once "./views/layout/banner.php";
+
+    ?>
     <!--nav-menu-->
 
     <div class="container">
@@ -86,7 +91,7 @@
 
               <ul class="clearfix">
                 <li class="menu-item">
-                  <a href="#">
+                  <a href="?controller=product&action=showByIntended&intended=cho">
                     <i class="fa fa-paw"></i>
                     Shop cho chó
                   </a>
@@ -103,15 +108,12 @@
                 </li>
                 <li class="menu-item">
                   <a href="#"><i class="fa fa-paw"></i> Shop cho mèo </a>
-
                   <ul class="sub-menu">
-                    <li><a href="?controller=product&action=showByCategory&id=1">Thức ăn</a></li>
-                    <li><a href="?controller=product&action=showByCategory&id=2">Quần áo</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=1&intended=meo">Thức ăn</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=2&intended=meo">Quần áo</a></li>
                     <li><a href="?controller=product&action=showByCategory&id=3">Phụ kiện</a></li>
-                    <li><a href="?controller=product&action=showByCategory&id=4">Giường, chuồng</a></li>
+                    <li><a href="?controller=product&action=showByCategory&id=4&intended=meo">Giường, chuồng</a></li>
                     <li><a href="?controller=product&action=showByCategory&id=12">Mỹ phẩm,làm đẹp</a></li>
-
-
                   </ul>
                 </li>
                 <li class="menu-item">
@@ -171,7 +173,6 @@
   </div>
   <?php
   include_once "./views/layout/banner.php";
-  include_once "./views/layout/content.php";
   ?>
 
   <div class="content">

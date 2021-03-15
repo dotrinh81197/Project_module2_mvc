@@ -138,47 +138,27 @@ class Products
         ]);
     }
 
-    public function update($id)
+    static function getCategoryIntended($category_id, $intended_for, $number)
     {
-        $sql = "UPDATE products 
-        SET product_name= ?, brand= ?, item_weight=?, cost_price=?, sell_price=?, sale_price=? ,description= ?, age_range= ?, origin= ?, image_url= ?,intended_for= ?,category_id= ?
-        where product_id=$id";
+        if (empty($intended_for)) {
 
-        $statement = DB::getInstance()->prepare($sql);
-        return $statement->execute([
-            $this->name,
-            $this->brand,
-            $this->weight,
-            $this->cost_price,
-            $this->sell_price,
-            $this->sale_price,
-            $this->description,
-            $this->ageRange,
-            $this->origin,
-            $this->image_url,
-            $this->intended_for,
-            $this->category_id
-        ]);
-    }
-
-
-
-    // public function drop()
-    // {
-    //     $sql = "DELETE FROM products WHERE product_id=$this->id;";
-    //     $statement = DB::getInstance()->prepare($sql);
-    //     return $statement->execute();
-    // }
-
-    static function getbycategory($category_id, $number)
-    {
-
-        $sql = "SELECT *
+            $sql = "SELECT *
                 FROM products t1
                 LEFT JOIN categories t2 
                 ON t1.category_id = t2.category_id
-                WHERE t1.category_id = $category_id
+                WHERE t1.category_id = $category_id 
                 LIMIT $number;";
+        } else {
+
+            $sql = "SELECT *
+            FROM products t1
+            LEFT JOIN categories t2 
+            ON t1.category_id = t2.category_id
+            WHERE t1.category_id = $category_id  AND
+                  t1.intended_for = '$intended_for'
+            LIMIT $number;";
+        }
+
 
         $statement = DB::getInstance()->prepare($sql);
 
@@ -273,5 +253,44 @@ class Products
             $products[] = $entity;
         }
         return $products;
+    }
+    static function getbyCategory($category_id, $number)
+    {
+
+        $sql = "SELECT *
+        FROM products t1
+        LEFT JOIN categories t2 
+        ON t1.category_id = t2.category_id
+        WHERE t1.category_id = $category_id 
+        LIMIT $number;";
+
+
+
+        $statement = DB::getInstance()->prepare($sql);
+
+        $statement->execute();
+        // Array associative 
+        $rowdata = $statement->fetchAll();
+        $list = [];
+
+        foreach ($rowdata as $row) {
+            $entity = new Products();
+            $entity->id = $row['product_id'];
+            $entity->name = $row['product_name'];
+            $entity->brand = $row['description'];
+            $entity->weight = $row['item_weight'];
+            $entity->sell_price = $row['sell_price'];
+            $entity->cost_price = $row['cost_price'];
+            $entity->sale_price = $row['sale_price'];
+            $entity->description = $row['description'];
+            $entity->ageRange = $row['age_range'];
+            $entity->origin = $row['origin'];
+            $entity->image_url = $row['image_url'];
+            $entity->intended_for = $row['intended_for'];
+            $entity->category_id = $row['category_id'];
+            $entity->category = $row['category_name'];
+            $list[] = $entity;
+        }
+        return $list;
     }
 }
